@@ -1,6 +1,7 @@
 import React , {Component} from 'react'
 import FirstComponent from './components/MyReactAppComponents/FirstComponent'
 import SecondComponent from './components/MyReactAppComponents/SecondComponet'
+import CounterComponent from './components/SimpleCounter/Counter'
 import './App.css'
 
 
@@ -9,50 +10,27 @@ class myReactApp extends Component{
   render() {
 
     return(
+
         <div>
-            <p>Hello Dipanjan</p>
-            <FirstComponent/>
-            <SecondComponent/>
+           <CounterComponent/>
         </div>
+
 
     );
   }
 }
 
-// class FirstComponent extends Component{
-//     render()
-//     {
-//         return (
-//             <div>
-//                 <p> first Component </p>
-//             </div>
-//
-//         );
-//
-//
-//     }
-// }
-//
-//
-// class SecondComponent extends Component{
-//     render() {
-//
-//         return(
-//             <div>
-//                 <p>Second Component</p>
-//             </div>
-//         );
-//     }
-// }
-//
-// function ThirdComponent(){
-//
-//     return(
-//         <div>
-//             <p> Third Component </p>
-//         </div>
-//     );
-// }
+function BasicComponent() {
+
+    return(
+        <div>
+            <p>Hello Dipanjan</p>
+            <FirstComponent/>
+            <SecondComponent/>
+        </div>
+    );
+
+}
 
 export default myReactApp
 
