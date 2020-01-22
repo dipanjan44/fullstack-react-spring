@@ -12,7 +12,9 @@ class myReactApp extends Component{
     return(
 
         <div>
-           <CounterComponent/>
+           <CounterComponent incrementfactor={1}/>
+           <CounterComponent incrementfactor={100}/>
+           <CounterComponent incrementfactor={1000}/>
         </div>
 
 
