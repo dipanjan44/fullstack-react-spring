@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 
 import './Counter.css'
+import IncrementCounterButton from './IncrementCounterButton'
+import DecrementCounterButton from "./DecrementCounterButton";
 
 export default class Counter extends Component {
 
@@ -8,6 +10,7 @@ export default class Counter extends Component {
 
         super();
         this.increase=this.increase.bind(this);
+        this.decrease=this.decrease.bind(this);
         this.state = {
 
             counter : 0
@@ -18,24 +21,33 @@ export default class Counter extends Component {
     render() {
         return (
             <div>
-                <button onClick={this.increase} > Button_{this.props.incrementfactor}</button>
-                <span> {this.state.counter} </span>
+                <IncrementCounterButton by={100} incrementBy={this.increase}/>
+                <IncrementCounterButton by={10} incrementBy={this.increase}/>
+                <DecrementCounterButton by={20} decrementBy={this.decrease}/>
+                <span>{this.state.counter}</span>
             </div>
 
         );
     }
 
-    increase(){
+    increase(incrememtFactor){
 
         this.setState(
             {
-                counter : this.state.counter + this.props.incrementfactor
+                counter : this.state.counter + incrememtFactor
             }
         )
 
     }
 
-
+    decrease(decrementfactor)
+    {
+        this.setState(
+            {
+                counter : this.state.counter - decrementfactor
+            }
+        )
+    }
 
 
 }
