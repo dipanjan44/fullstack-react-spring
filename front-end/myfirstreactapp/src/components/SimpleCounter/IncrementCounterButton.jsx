@@ -5,7 +5,7 @@ export default class IncrementCounterButton extends Component {
     constructor(){
 
         super();
-        this.incrementCounter=this.incrementCounter.bind(this)
+        //this.incrementCounter=this.incrementCounter.bind(this)
 
     }
 
@@ -13,14 +13,15 @@ export default class IncrementCounterButton extends Component {
 
         return(
             <div>
-                <button onClick={this.incrementCounter}> + {this.props.by} </button>
+                <button onClick={()=> this.props.incrementBy(this.props.by)}> + {this.props.by} </button>
+                {/*<button onClick={this.incrementCounter}> + {this.props.by} </button>*/}
             </div>
         )
     }
 
-    incrementCounter(){
-        this.props.incrementBy(this.props.by)
-    }
+    // incrementCounter(){
+    //     this.props.incrementBy(this.props.by)
+    // }
 
 
 }
