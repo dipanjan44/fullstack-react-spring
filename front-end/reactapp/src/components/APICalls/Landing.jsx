@@ -1,18 +1,26 @@
-import React from 'react'
-import SearchBar from './SearchBar'
+import React, {PureComponent} from 'react'
 import axios from 'axios'
+import bindMethods from 'auto-bind'
+
+import SearchBar from './SearchBar'
 import ImageList from './ImageList'
 
-export default class Landing extends React.Component{
+export default class Landing extends PureComponent{
     state = {
         imageList: []
     }
 
-    fetchallImages = async (term) =>
+    constructor(){
+        super()
+        bindMethods(this)
+    }
+
+    // extract to api utils method
+    async fetchAllImages (searchTerm)
     {
         const response = await axios.get('https://api.unsplash.com//search/photos',{
 
-            params :{ query: term
+            params :{ query: searchTerm
 
             },
             headers :{
@@ -30,12 +38,20 @@ export default class Landing extends React.Component{
     }
 
     render() {
+        const imageCount = this.state.imageList.length;
 
         return(
             <div>
-                <SearchBar onsubmit={this.fetchallImages}/>
-                Found: {this.state.imageList.length} images
-                <ImageList images={this.state.imageList}/>
+                <SearchBar onsubmit={this.fetchAllImages}/>
+                {/* {!!imageCount && <p>Found: {imageCount} images</p>}
+                {!!imageCount && <ImageList images={this.state.imageList}/>} */}
+
+                {
+                    !!imageCount && <div>
+                        <p>Found: {imageCount} images</p>
+                        <ImageList images={this.state.imageList}/>
+                    </div>
+                }
             </div>
         )
     }
