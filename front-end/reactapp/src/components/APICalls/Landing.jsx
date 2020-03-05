@@ -1,11 +1,12 @@
 import React from 'react'
 import SearchBar from './SearchBar'
 import axios from 'axios'
+import ImageList from './ImageList'
 
 export default class Landing extends React.Component{
-   state = {
-       imageList: []
-   }
+    state = {
+        imageList: []
+    }
 
     fetchallImages = async (term) =>
     {
@@ -32,8 +33,9 @@ export default class Landing extends React.Component{
 
         return(
             <div>
-               <SearchBar onsubmit={this.fetchallImages}/>
-               Found: {this.state.imageList.length} images
+                <SearchBar onsubmit={this.fetchallImages}/>
+                Found: {this.state.imageList.length} images
+                <ImageList images={this.state.imageList}/>
             </div>
         )
     }
