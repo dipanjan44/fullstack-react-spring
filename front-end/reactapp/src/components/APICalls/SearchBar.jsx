@@ -50,27 +50,27 @@ import bindMethods from "auto-bind";
 // }
 
 
-const SearchBar=(props)=>{
+const SearchBar = (props) => {
 
-    const [searchTerm,setSearchTerm]= useState('')
+    const [searchTerm, setSearchTerm] = useState('')
 
-    const handleFormSubmit=(event) => {
-               event.preventDefault()
-               console.log({searchTerm})
-               props.onsubmit(searchTerm)
+    const handleFormSubmit = (event) => {
+        event.preventDefault()
+        console.log(searchTerm)
+        props.onSubmit(searchTerm)
     }
 
-    return(
+    return (
         <div>
             <form onSubmit={handleFormSubmit}>
-               <input 
-               type='text'
-               value={searchTerm}
-               onChange={(event)=>{setSearchTerm(event.target.value)}}
-               />
+                <input
+                    type='text'
+                    value={searchTerm}
+                    onChange={(event) => { setSearchTerm(event.target.value) }}
+                />
             </form>
         </div>
-        
+
     )
 
 }

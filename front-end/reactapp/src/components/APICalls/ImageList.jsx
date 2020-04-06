@@ -2,7 +2,7 @@ import React from 'react'
 import { generate as generateKey } from "short-id"
 
 const ImageList = (props) => {
-    
+
     // const images = props.images.map((image)=>{
     //     return <img src={image.urls.regular}/>
     // })
@@ -13,7 +13,11 @@ const ImageList = (props) => {
     //     </div>
     // )
 
-    return props.images.map((img) => <img key={generateKey()} src={img.urls.regular}/>)
+    return props.images.map((img) =>
+        <img key={generateKey()} src={img.urls.regular}
+        />
+
+    )
 
 }
 

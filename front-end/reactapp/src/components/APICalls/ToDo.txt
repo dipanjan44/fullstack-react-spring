@@ -1,0 +1,8 @@
+1. Rewrite using Hooks => Done
+2. Abstract API into util helpers
+3. Make use of Context instead of State and Prop Passing
+    -- https://reactjs.org/docs/context.html (what is context?)
+    -- https://reactjs.org/docs/hooks-reference.html#usecontext (how to use context with hooks)
+4. Make use of React Memo
+    -- https://reactjs.org/docs/react-api.html#reactmemo (what is react memo?)
+    -- https://reactjs.org/docs/hooks-reference.html#usememo (use with hooks)
